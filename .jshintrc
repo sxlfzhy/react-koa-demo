@@ -1,0 +1,130 @@
+{
+  // bitwise 如果为真，JSHint会禁用位运算符  Javascript允许位运算，但是他却没有整型，所以效率就不高
+  "bitwise": true,
+  // curly  如果为真，JSHint会要求你在使用if和while等结构语句时加上{}来明确代码块。
+  "curly": true,
+  // eqeqeq 如果为真，JSHint会看你在代码中是否都用了===或者是!==，而不是使用==和!=。我们建议你在比较0，''(空字符)，undefined，null，false和true的时候使用===和!===
+  "eqeqeq": false,
+  // forin 如果为真，那么，JSHint允许在for in 循环里面不出现hasOwnProperty，for in循环一般用来遍历一个对象的属性，这其中也包括他继承自原型链的属性，而hasOwnProperty可以来判断一个属性是否是对象本身的属性而不是继承得来的
+  "forin": false,
+  // immed 如果为真，JSHint要求匿名函数的调用如下：(function(){//}());    而不是 (function(){//bla bla})();
+  "immed": false,
+  // latedef 如果为真，JSHint禁止定义之前使用变量
+  "latedef": true,
+  // newcap 如果为真，JSHint会要求每一个构造函数名都要大写字母开头。构造器是一种使用new运算符来创建对象的一种函数，new操作符会创建新的对象，并建立这个对象自己的this，一个构造函数如果不用new运算符来运行，那么他的this会指向全局对象而导致一些问题的发生
+  "newcap": true,
+  // noarg 如果为真，JSHint会禁止arguments.caller和arguments.   es5已禁用该方法
+  "noarg": true,
+  // noempty 如果为真，JSHint会禁止出现空的代码块（没有语句的代码块）
+  "noempty": true,
+  // camelcase 如果为真，JSHint会要求变量使用驼峰法则
+  "camelcase": false,
+  // nonew 如果为真，JSHint会禁止代码使用构造器
+  "nonew": false,
+  // plusplus 如果为真，JSHint会禁用自增运算和自减运算++和--
+  "plusplus": false,
+  // regexp 如果为真，JSHint会不允许使用.和[^...]的正则，因为这样的正则往往会匹配到你不期望的内容，并可能会应用造成一些危害
+  "regexp": true,
+  // undef 如果为真，JSHint会要求所有的非全局变量，在使用前都被声明。
+  "undef": true,
+  // strict 如果为真，JSHint会要求你使用use strict语法。
+  "strict": true,
+  // trailing  如果为真，JSHint会禁止行尾空格
+  "trailing": true,
+  // asi 如果是真，JSHint会无视没有加分号的行尾  默认，JSHint会要求你在每个语句后面加上分号
+  "asi": true,
+  // boss 如果为真，那么JSHint会允许在if，for，while里面编写赋值语句  一般来说，我们会在循环、判断等语句中加入值的比较来做语句的运行条件，有时候会把==错写成赋值的=
+  "boss": true,
+  // debug 如果为真，JSHint会允许代码中出现debugger的语句。 生产环境 该值最好改为false
+  "debug": false,
+  // eqnull 如果为真，JSHint会允许使用"== null"作比较。== null 通常用来判断一个变量是undefined或者是null
+  "eqnull": false,
+  // es3 如果为真，JSHint要求强制使用ECMAScript 3规范
+  "es3": false,
+  //
+  //"esversion": 6,
+
+  //
+  "esnext": true,
+  // evil 如果为真，JSHint会允许使用eval  eval提供了访问Javascript编译器的途径，这有时很有用，但是同时也对你的代码形成了注入攻击的危险，并且会对debug造成一些困难。记住，Function构造函数也是另一个‘eval’，另外，当传入的参数是字符串的时候，setTimeout和setInterval也会类似于eval
+  "evil": false,
+  //
+  "expr": false,
+  //
+  "unused": true,
+  // indent 代码缩进宽度（空格数）
+  "indent": 4,
+  //
+  "funcscope": false,
+  //
+  "globalstrict": false,
+  //
+  "iterator": false,
+  //
+  "lastsemic": false,
+  // laxbreak 如果为真，JSHint则不会检查换行。Javascript会通过自动补充分号来修正一些错误，因此这个选项可以检查一些潜在的问题
+  "laxbreak": false,
+  //
+  "laxcomma": false,
+  //
+  "loopfunc": false,
+  //
+  "multistr": false,
+  //
+  "onecase": true,
+  //
+  "proto": false,
+  //
+  "regexdash": false,
+  //
+  "scripturl": false,
+  //
+  "smarttabs": true,
+  //
+  "shadow": false,
+  // sub 如果为真，JSHint会允许各种形式的下标来访问对象。
+  "sub": true,
+  // supernew 如果为真，JSHint会允许new function() {...}和new Object;
+  "supernew": false,
+  // validthis 如果为真，JSHint会允许严格模式下在非构造函数中使用this
+  "validthis": true,
+  // browser 如果为真，JSHint会允许预定义全局变量 document ， navigator ， FileReader 等
+  "browser": true,
+  //
+  "couch": false,
+  // devel 如果为真，JSHint会允许定义用于调试的全局变量： console ， alert
+  "devel": false,
+  //
+  "wsh": false,
+  // nomen 如果为真，JSHint会禁用下划线的变量名
+  "nomen": false,
+  // onevar 如果为真，JSHint期望函数只被var的形式声明一遍。
+  "onevar": true,
+  // passfail 如果为真，JSHint会在发现首个错误后停止检查
+  "passfail": false,
+  // white 如果为true，JSHint会依据严格的空白规范检查你的代码。
+  "white": true,
+  // maxlen 设定每行最大字符个数
+  "maxlen": 120,
+  // maxparams 设定函数的参数最大个数
+  "maxparams": 50,
+  // maxdepth 设定函数的最大嵌套深度   深度越大会导致阅读困难
+  "maxdepth": 3,
+  // maxstatements  函数中最大语句数
+  "maxstatements": 100,
+  // maxerr 设定错误的阈值，超过这个阈值jshint不再向下检查，提示错误太多
+  "maxerr": 100,
+  // globals 定义全局变量
+  "globals": {
+    "require": true,
+    "console": true,
+    "module": true,
+    "process": true,
+    "describe": true,
+    "it": true,
+    "__dirname": true,
+    "angular": true,
+    "UE": true,
+    "jvs": true
+  }
+}
