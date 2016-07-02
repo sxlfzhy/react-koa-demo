@@ -29,7 +29,14 @@ router.post('/login', function *(next) {
         return false;
     }
 
-    let user = yield UserSchema.findByAccount(userName);
+    // let user = yield UserSchema.findByAccount(userName);
+    let user = [{
+        account: 'admin',
+        nickname: 'admin_system',
+        password: 'D033E22AE348AEB5660FC2140AEC35850C4DA997',
+        remark: '',
+        email: ''
+    }]
     if (user.length > 0) {
         user = user[0]
         if (user.password === password.toUpperCase()) {
@@ -67,7 +74,7 @@ router.post('/logout', function *(next) {
 /**
  * 新增用户
  */
-router.post('/save', function *(next) {
+router.get('/save', function *(next) {
     var user = {
         account: 'admin',
         nickname: 'admin_system',

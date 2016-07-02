@@ -7,6 +7,6 @@ module.exports = {
     },
     // 数据库设置
     mongo: {
-        url: 'mongodb://10.2.1.57:27017/activity'
+        url: 'mongodb://127.0.0.1:27017/activity'
     }
 };
