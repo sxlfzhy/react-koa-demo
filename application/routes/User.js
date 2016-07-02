@@ -29,6 +29,7 @@ router.post('/login', function *(next) {
         return false;
     }
 
+    // default have no use mongbo, if you want find the user form db, open line 33 and comment lines 34 to 40
     // let user = yield UserSchema.findByAccount(userName);
     let user = [{
         account: 'admin',
