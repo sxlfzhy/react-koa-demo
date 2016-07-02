@@ -3,7 +3,6 @@ import './less/login.less';
 import {Form, Input, Button, Checkbox, Icon, Row, Col, Tooltip, Alert} from 'antd';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
-import logo from '../../images/logo.png';
 
 import * as actions from '../../actions/user';
 const FormItem = Form.Item;
@@ -29,11 +28,11 @@ class Login extends React.Component{
         }
     }
 
-     componentDidMount() {
+    componentDidMount() {
         if (sessionStorage.user) {
             this.props.history.push('/console')
         }
-     }
+    }
 
     render() {
         const {getFieldProps} = this.props.form;
@@ -50,10 +49,9 @@ class Login extends React.Component{
                 <div className="login-main">
                     <div className="login-title">
                         <h1>
-                            <img src={logo} className="img-logo" />
-                            问吧科技
+                            KOA+REACT 中后台DEMO
                         </h1>
-                        <h4>© 学霸君活动管理平台</h4>
+                        <h4>© yangyang.zhang@wenba100.com</h4>
                     </div>
                     <div className="login-cnt">
                         <Form onSubmit={this.handleSubmit.bind(this)}>
