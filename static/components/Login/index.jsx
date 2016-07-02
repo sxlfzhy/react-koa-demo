@@ -3,6 +3,7 @@ import './less/login.less';
 import {Form, Input, Button, Checkbox, Icon, Row, Col, Tooltip, Alert} from 'antd';
 import { bindActionCreators } from 'redux';
 import { connect } from 'react-redux';
+import logo from '../../images/logo.png';
 
 import * as actions from '../../actions/user';
 const FormItem = Form.Item;
@@ -49,15 +50,16 @@ class Login extends React.Component{
                 <div className="login-main">
                     <div className="login-title">
                         <h1>
-                            KOA+REACT 中后台DEMO
+                            <img src={logo} className="img-logo" />
+                            问吧科技
                         </h1>
-                        <h4>© yangyang.zhang@wenba100.com</h4>
+                        <h4>© 学霸君活动管理平台</h4>
                     </div>
                     <div className="login-cnt">
                         <Form onSubmit={this.handleSubmit.bind(this)}>
                             <Input.Group className="login-from-group">
                                 <FormItem>
-                                    <Input addonBefore={userAddon} size="large" placeholder="账户" {...getFieldProps('userName')} />
+                                    <Input addonBefore={userAddon} autoComplete="off" size="large" placeholder="账户" {...getFieldProps('userName')} />
                                 </FormItem>
                                 <FormItem>
                                     <Input addonBefore={pwdAddon} size="large" type="password" placeholder="密码" {...getFieldProps('password')} />
