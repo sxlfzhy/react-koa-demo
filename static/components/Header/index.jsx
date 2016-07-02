@@ -1,6 +1,6 @@
 import React from 'react';
 import {Link} from 'react-router'
-import {Row, Popover, Icon} from 'antd';
+import {Row, Dropdown, Icon, Menu} from 'antd';
 
 import './less/header.less';
 
@@ -9,23 +9,29 @@ class Header extends React.Component{
         super(props);
     }
 
-    handleLogout(e) {
-        sessionStorage.clear();
-        this.props.logout();
-        this.props.history.push('/');
+    handleMenuClick (e) {
+        switch (e.key) {
+            case '1':
+                sessionStorage.clear();
+                this.props.logout();
+                this.props.history.push('/');
+                return false;
+            default:
+                return false;
+        }
     }
 
     render() {
         const contBtns = (
-          <ul className="user-ctrols">
-            <li>
-                <Link to="/"><Icon type="setting" />修改密码</Link>
-            </li>
-            <li className="divider"></li>
-            <li onClick={this.handleLogout.bind(this)}>
-                <Icon type="logout" />退出
-            </li>
-          </ul>
+            <Menu className="user-ctrols" onClick={this.handleMenuClick.bind(this)}>
+                <Menu.Item key="0">
+                    <Link to="/"><Icon type="setting" />修改密码</Link>
+                </Menu.Item>
+                <Menu.Divider />
+                <Menu.Item key="1">
+                    <Icon type="logout" />退出
+                </Menu.Item>
+            </Menu>
         );
 
         return (
@@ -34,12 +40,12 @@ class Header extends React.Component{
                 <Link to="/console" className="my-logo pull-left">
                     <span className="text">KOA＋REACT DEMO</span>
                 </Link>
-                <Popover placement="bottomRight" content={contBtns} trigger="click" className="pull-right">
+                <Dropdown overlay={contBtns} trigger={['click']} className="pull-right">
                     <a className="nav-user">
                         {this.props.user.nickname}
                         <Icon type="down" />
                     </a>
-                </Popover>
+                </Dropdown>
               </div>
             </Row>
         );
