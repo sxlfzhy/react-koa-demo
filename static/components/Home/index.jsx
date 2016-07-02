@@ -7,8 +7,9 @@ import './less/home.less';
 import Header from '../Header'
 import SubMenu from '../SubMenu'
 import Footer from '../Footer'
-import {Breadcrumb, Row, Col} from 'antd';
+import {Breadcrumb, Row, Col, Icon} from 'antd';
 import * as actions from '../../actions/user';
+import * as RoleActions from '../../actions/role';
 
 class Home extends React.Component{
     constructor(props) {
@@ -22,24 +23,39 @@ class Home extends React.Component{
         } else {
             this.props.history.push('/');
         }
+
+        this.state = {
+            breads: []
+        }
+    }
+
+    componentWillMount () {
+        this.props.menuRefer(this.props.location.pathname)
     }
 
     render() {
+        this.props.menuRefer(this.props.location.pathname)
+
+        const breads = [{
+                    link: '#/console',
+                    name: <Icon type="home" />
+                }].concat(this.props.role.open).concat(this.props.role.current)
+
         return (
             <div className="page">
                 <Header user={this.props.user.info} logout={this.props.logout} history={this.props.history}/>
                 <div className="contain">
                     <Breadcrumb>
-                        <Breadcrumb.Item>产品</Breadcrumb.Item>
-                        <Breadcrumb.Item>运维管理</Breadcrumb.Item>
-                        <Breadcrumb.Item className="last">发布部署服务</Breadcrumb.Item>
+                        {
+                            breads.map(item => <Breadcrumb.Item href={'#' + item.link} key={item.name}>{item.name}</Breadcrumb.Item>)
+                        }
                     </Breadcrumb>
                     <Row className="contain-docs">
                         <Col className="contain-docs-nav" span={4}>
-                            <SubMenu />
+                            <SubMenu open={this.props.role.open} current={this.props.role.current}/>
                         </Col>
                         <Col className="contain-docs-main" span={20}>
-
+                            {this.props.children}
                         </Col>
                     </Row>
                 </div>
@@ -50,5 +66,8 @@ class Home extends React.Component{
 }
 
 let mapStateToProps = state => state;
-let mapDispatchToProps = dispatch => bindActionCreators(actions, dispatch);
+let mapDispatchToProps = dispatch => bindActionCreators({
+    ...actions,
+    ...RoleActions
+}, dispatch);
 export default connect(mapStateToProps, mapDispatchToProps)(Home);

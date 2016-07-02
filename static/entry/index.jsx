@@ -2,7 +2,6 @@
 
 import React from 'react';
 import {render} from 'react-dom';
-import {Router, Route, IndexRoute, Redirect, hashHistory} from 'react-router'
 import {Provider} from 'react-redux';
 
 // style
@@ -12,21 +11,14 @@ import 'antd/dist/antd.css';
 // store
 import createStore from '../store';
 
-// routers
-import App from '../components/App';
-import Login from '../components/Login';
-import Home from '../components/Home';
+// router
+import AppRouter from '../components/Router';
 
 let store = createStore();
 
 render(
     <Provider store={store}>
-        <Router history={hashHistory}>
-            <Route path="/" component={App}>
-                <IndexRoute component={Login}/>
-                <Route path="/console" component={Home} />
-            </Route>
-        </Router>
+        <AppRouter />
     </Provider>,
     document.getElementById('container')
 );
