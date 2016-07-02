@@ -23,6 +23,7 @@ function menuUpdate(path) {
 
 export function menuRefer(path) {
     return dispatch => {
+        // 这里我为了方便，直接将菜单写成固定的，实际使用过程中可以考虑通过后台接口方式获取菜单列表
         dispatch(menuInit())
 
         dispatch(menuUpdate(path))

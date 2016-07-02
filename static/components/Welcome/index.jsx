@@ -7,7 +7,9 @@ class Welcome extends React.Component{
 
     render() {
         return (
-            <div>欢迎来到学霸君活动管理平台</div>
+            <div>
+                <h2>欢迎来到Koa+react 中后台demo，希望它能给你提供方便</h2>
+            </div>
         );
     }
 }

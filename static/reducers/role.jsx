@@ -12,15 +12,28 @@ const menuInit = () => {
     return {
         menus: [
             {
-                key: 'sub-activity',
-                name: <span><Icon type="appstore-o" /><span>活动管理</span></span>,
+                key: 'sub-1',
+                name: <span><Icon type="appstore-o" /><span>选项组1</span></span>,
                 type: 'sub',
                 children: [
                     {
-                        key: 'activities',
-                        name: <span>活动列表</span>,
+                        key: '1-1',
+                        name: <span>选项1-1</span>,
                         type: 'leaf',
-                        link: '/console/activities'
+                        link: '/console/sub-1-1'
+                    }
+                ]
+            },
+            {
+                key: 'sub-2',
+                name: <span><Icon type="appstore-o" /><span>选项组2</span></span>,
+                type: 'sub',
+                children: [
+                    {
+                        key: '2-1',
+                        name: <span>选项2-1</span>,
+                        type: 'leaf',
+                        link: '/console/sub-2-1'
                     }
                 ]
             }
