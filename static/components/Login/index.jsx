@@ -10,6 +10,8 @@ const FormItem = Form.Item;
 class Login extends React.Component{
     constructor(props) {
         super(props);
+
+        this.state = {load: false};
     }
 
     /**
@@ -17,8 +19,15 @@ class Login extends React.Component{
     */
     handleSubmit(e) {
         e.preventDefault();
-        const {login} = this.props;
-        login(this.props.form.getFieldsValue());
+        this.props.form.validateFields((errors, values) => {
+            if (errors) {
+                return false;
+            }
+            // 表单验证通过
+            this.setState({load: true});
+
+            this.props.login(values);
+        });
     }
 
     // 监听登录成功，如果登录成功，跳转成功页面
@@ -26,6 +35,7 @@ class Login extends React.Component{
         if (nextProps.user.info || sessionStorage.user) {
             this.props.history.push('/console')
         }
+        this.state = {load: false};
     }
 
     componentDidMount() {
@@ -43,7 +53,23 @@ class Login extends React.Component{
             alert = (<Alert message={this.props.user.error.text} type="error" showIcon />)
         }
 
-        const load = this.props.user.load ? 'loading' : ''
+        const userProps = getFieldProps('userName', {
+            validate: [{
+                rules: [
+                    {required: true, message: '用户名不能为空'}
+                ],
+                trigger: ['onChange'],
+            }],
+        });
+
+        const pwdProps = getFieldProps('password', {
+            validate: [{
+                rules: [
+                    {required: true, message: '密码不能为空'}
+                ],
+                trigger: ['onChange'],
+            }],
+        });
         return (
             <div className="login-body">
                 <div className="login-main">
@@ -54,13 +80,13 @@ class Login extends React.Component{
                         <h4>© yangyang.zhang@wenba100.com</h4>
                     </div>
                     <div className="login-cnt">
-                        <Form onSubmit={this.handleSubmit.bind(this)}>
+                        <Form onSubmit={this.handleSubmit.bind(this)} form={this.props.form}>
                             <Input.Group className="login-from-group">
                                 <FormItem>
-                                    <Input addonBefore={userAddon} autoComplete="off" size="large" placeholder="账户" {...getFieldProps('userName')} />
+                                    <Input addonBefore={userAddon} autoComplete="off" size="large" placeholder="账户" {...userProps} />
                                 </FormItem>
                                 <FormItem>
-                                    <Input addonBefore={pwdAddon} size="large" type="password" placeholder="密码" {...getFieldProps('password')} />
+                                    <Input addonBefore={pwdAddon} size="large" type="password" placeholder="密码" {...pwdProps} />
                                 </FormItem>
                                 {alert}
                                 <Row className="pull-right">
@@ -68,7 +94,7 @@ class Login extends React.Component{
                                         <a href="javascript:;">忘记密码</a>
                                     </Tooltip>
                                 </Row>
-                                <Button size="large" type="primary" htmlType="submit" icon={load}> {this.props.user.load ? '登录中...' : '登录'} </Button>
+                                <Button size="large" type="primary" htmlType="submit" loading={this.state.load}> {this.state.load ? '登录中...' : '登录'} </Button>
                             </Input.Group>
                         </Form>
                     </div>
