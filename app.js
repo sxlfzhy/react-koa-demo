@@ -6,7 +6,8 @@ const app = require('koa')(),
     json = require('koa-json'),
     session = require('koa-session');
 
-const user = require('./application/routes/User');
+const User = require('./application/routes/User');
+const Config = require('./application/routes/Config');
 const Err = require('./config/error');
 
 // global middlewares
@@ -34,7 +35,7 @@ app.use(function *(next) {
 // session filter
 app.use(function *(next){
     // ignore
-    const ignores = Object.freeze([/^\/$/, /\/user\/login$/, /\.(html|jpg|png|gif|ico|js|css|mp4|eot|svg|ttf|woff|mp3|json|woff2)$/i]);
+    const ignores = Object.freeze([/^\/$/, /\/user\/login$/, /\/config\/getConfig$/, /\.(html|jpg|png|gif|ico|js|css|mp4|eot|svg|ttf|woff|mp3|json|woff2)$/i]);
 
     // 如果当前请求的接口url在ignores数组中，或者当前用户已经存在session.user，则通过
     const some = ignores.some(item => item.test(this.request.url));
@@ -76,7 +77,8 @@ app.use(function *(next){
 app.use(require('koa-static')(__dirname + '/static'));
 // routes definition
 router.prefix('/app');
-router.use('/user', user.routes(), user.allowedMethods());
+router.use('/user', User.routes(), User.allowedMethods());
+router.use('/config', Config.routes(), Config.allowedMethods());
 
 // mount root routes
 app.use(router.routes());

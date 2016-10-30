@@ -1,0 +1,244 @@
+.courseware-pages {
+  width: 1050px;
+  margin: 0 auto;
+  letter-spacing: 1px;
+
+  .course-split {
+    font-size: 16px;
+    color: #66686E;
+    position: relative;
+    padding: 15px 0 0px 30px;
+    line-height: 2;
+
+    &:before {
+      content: " ";
+      height: 100%;
+      border-left: 1px solid #EEE;
+      position: absolute;
+      left: 20px;
+      top: 0px;
+    }
+
+    .sub-head {
+      font-style: normal;
+      margin-left: 1em;
+    }
+  }
+}
+
+.courseware-page {
+  border: 1px solid #DDD;
+  display: inline-block;
+  width: 100%;
+  margin-top: 15px;
+  position: relative;
+
+  &:after {
+    content: " ";
+    height: 15px;
+    border-left: 1px solid #EEE;
+    position: absolute;
+    left: 19px;
+    top: -16px;
+  }
+}
+
+.courseware-caption {
+  height: 580px;
+  background: #EEE;
+  color: #666;
+  margin-left: 800px;
+  vertical-align: middle;
+  border-left: 1px solid #DDD;
+  background-image: url(line.png);
+  background-size: 10px 28px;
+  position: relative;
+  padding: 112px 5px 0 30px;
+  line-height: 28px;
+  text-align: justify;
+
+  .h3 {
+    height: 83px;
+    position: absolute;
+    left: 0;
+    top: 0;
+    right: 0;
+    background-color: #f2f3f7;
+    margin: 0;
+    padding: 45px 0 0 30px;
+    border-bottom: 2px solid #ddd;
+  }
+
+  .action-bar {
+    width: 100%;
+    height: 84px;
+    padding-left: 30px;
+    background-color: #f2f3f7;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+  }
+
+  &:before {
+    content: " ";
+    position: absolute;
+    z-index: 2;
+    width: 3px;
+    height: 100%;
+    left: 17px;
+    top: 0;
+    border-right: 1px solid #ddd;
+    border-left: 1px solid #ddd;
+  }
+}
+
+.courseware-wrapper {
+  width: 800px;
+  height: 580px;
+  font-size: 14px;
+  display: inline-block;
+  vertical-align: middle;
+  float: left;
+  padding: 15px 25px;
+  overflow: auto;
+  position: relative;
+  z-index: 1;
+  border: 1px solid #D6D9E2;
+  box-shadow: 2px 2px 6px 0px rgba(178, 180, 189, .5);
+  background-color: #FFF;
+
+  .stem-html-icon {
+    float: left;
+    margin: 0 4px 0 2em;
+  }
+
+  .btn-answer {
+    position: absolute;
+    bottom: 20px;
+    left: 20px;
+  }
+}
+
+.courseware-title {
+  padding: 5px 0 10px;
+  font-weight: bold;
+  color: #333;
+  font-size: 13px;
+  border-bottom: 2px solid #E7E9F1;
+  margin-bottom: 10px;
+
+  &:before {
+    display: inline-block;
+    color: #000;
+    font-size: 10px;
+    padding: 3px;
+    transform: scale(.7);
+    margin-right: 5px;
+    border: 1px solid #000;
+    border-radius: 5px;
+  }
+}
+
+.define-modal-list {
+  margin: -16px;
+  letter-spacing: 1px;
+
+  .define-row {
+    padding: 10px 16px 6px;
+
+    &:after {
+      content: ' ';
+      display: table;
+      clear: both;
+    }
+
+    &:not(:last-child) {
+      border-bottom: 1px solid #ddd;
+    }
+
+    &:nth-child(even) {
+      background-color: rgba(231, 233, 241, 0.2);
+    }
+  }
+}
+
+.define-list {
+  word-break: break-all;
+  font-size: 14px;
+  border-bottom: 1px solid #E7E9F1;
+  padding: 5px;
+  margin: 0px;
+
+  .define-key {
+    color: #333;
+    font-size: 16px;
+  }
+
+  span {
+    font-size: inherit !important;
+  }
+}
+
+// 关卡过渡页面样式
+.cw-checkpoint-helper {
+  color: #333;
+
+  .courseware-wrapper {
+    background-image: url(../images/define.png);
+    background-size: 100% 100%;
+    padding-left: 80px;
+  }
+
+  &.test {
+    .courseware-wrapper{
+      background-image: url(../images/test.png);
+    }
+  }
+
+  &.qa {
+    .courseware-wrapper{
+      background-image: url(../images/q&a.png);
+    }
+  }
+
+  .checkpoint-title {
+    color: #5e80de;
+    margin: 170px 0 20px;
+    font-weight: 300;
+
+    small {
+      font-size: 0.75em;
+      position: relative;
+      top: 3px;
+    }
+
+    &:after {
+      content: " ";
+      display: block;
+      width: 4em;
+      background-color: #617FDE;
+      height: 3px;
+      margin-top: 10px;
+    }
+
+    .title-num {
+      background-color: #617FDE;
+      border-radius: 4px;
+      color: #FFF;
+      font-style: normal;
+      width: 1.1em;
+      display: inline-block;
+      text-align: center;
+    }
+  }
+
+  .define-helper-list {
+    color: #617FDE;
+    font-weight: 500;
+
+    &:before {
+      content: "4级知识点   |   ";
+      opacity: .6;
+    }
+  }
+}

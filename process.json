@@ -1,0 +1,20 @@
+{
+  "apps" : [{
+    "script": "./bin/www",
+    "name": "koa-react",
+    "watch": true,
+    "instances" : "max",
+    "exec_mode" : "cluster",
+    "node_args": [
+      "--harmony",
+      "--harmony_destructuring",
+      "--harmony_modules",
+      "--harmony_default_parameters"
+    ],
+    "ignoreWatch" : ["static", "node_modules"],
+    "env": {
+    },
+    "env_production" : {
+    }
+  }]
+}

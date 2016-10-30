@@ -1,0 +1,59 @@
+
+.c-courseware-menu {
+  border: 1px solid #E7E9F1;
+
+  .ant-menu-item-selected {
+    .icon-recmd {
+      background: url(../images/icon-recmd-active.png);
+    }
+
+    .icon-mine {
+      background: url(../images/icon-mine-active.png);
+    }
+  }
+
+  .icon-recmd {
+    background: url(../images/icon-recmd.png);
+    width: 32px;
+    height: 24px;
+    display: inline-block;
+  }
+
+  .icon-mine {
+    background: url(../images/icon-mine.png);
+    width: 32px;
+    height: 24px;
+    display: inline-block;
+  }
+}
+
+.c-catalog-dialog {
+  .icon-recmd,
+  .icon-mine {
+    display: none;
+  }
+
+  .c-courseware-menu {
+    margin-left: -16px;
+    border: none;
+  }
+
+  .ant-menu-item {
+    padding: 9px 0;
+
+    &.ant-menu-item-selected {
+      background-color: rgba(97, 127, 222, 0.05);
+      color: #617FDE;
+
+      &:after {
+        height: 100%;
+        width: 3px;
+        background-color: #617FDE;
+        bottom: 0;
+        left: 0;
+        margin-left: 0;
+      }
+    }
+  }
+}
+
